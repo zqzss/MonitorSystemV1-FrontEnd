@@ -1,5 +1,5 @@
 # 前言
-**vue2-elementui-admin**项目是基于vue全家桶和elementui完成的PC端后台管理系统模板。[最新后台管理系统模板](https://gitee.com/nut77/vue2-elementui-layout)。
+**vue2-elementui-admin**项目是基于vue全家桶和elementui完成的PC端后台管理系统模板。[最新后台管理系统模板（使用vue2全家桶、element-ui、echarts、axios等）](https://gitee.com/nut77/vue2-elementui-layout)。
 # 技术栈
 less es6 vue2 vuex vue-router element-ui webpack echarts
 # 项目运行
