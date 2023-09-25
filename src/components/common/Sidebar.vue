@@ -1,6 +1,7 @@
 <template>
   <el-aside width="auto" height="auto">
     <el-menu :collapse="isCollapse" :default-active="onRoutes" background-color="#232323" text-color="#ccc" active-text-color="#ddd" unique-opened router>
+    <!-- <el-menu :collapse="isCollapse" :default-active="onRoutes" background-color="rgb(140, 197, 255)" text-color="#ccc" active-text-color="#FFFFFF" unique-opened router> -->
       <template v-for="item in items">
         <template v-if="item.subItems">
           <el-submenu :index="item.path">
@@ -31,8 +32,7 @@
     data() {
       return {
         isCollapse: false,
-        items: [
-          {
+        items: [{
             title: '系统首页',
             path: '/index',
             icon: 'el-icon-setting'
@@ -41,8 +41,7 @@
             title: 'echarts图表',
             path: 'echarts',
             icon: 'el-icon-star-on',
-            subItems: [
-              {
+            subItems: [{
                 title: '简单图表',
                 path: '/chart-simple'
               },
@@ -72,6 +71,36 @@
             path: '/404',
             icon: 'el-icon-error'
           },
+          {
+            title: "用户",
+            path: '/user',
+            icon: "el-icon-s-custom"
+          },
+          {
+            title: '主机',
+            path: '/host',
+            icon: "el-icon-monitor"
+          },
+          {
+            title: "监控项",
+            path: '/monitorItem',
+            icon: "el-icon-view"
+          },
+          {
+            title: "监控数据",
+            path: '/monitorData',
+            icon: "el-icon-s-data"
+          },
+          {
+            title: "告警记录",
+            path: '/monitorAlarm',
+            icon: "el-icon-warning-outline"
+          },
+          {
+            title: "通知配置",
+            path: '/noticeConfig',
+            icon: "el-icon-s-help"
+          },
         ]
       }
     },
@@ -96,12 +125,15 @@
   .el-menu {
     height: 100%;
     border: none;
+
     &:not(.el-menu--collapse) {
       width: 200px;
     }
   }
+
   .el-menu-item.is-active {
-    border-left: 3px solid @mainColor;
+    // border-left: 3px solid @mainColor;
+    border-left: 3px solid lawngreen;
     background-color: #171717 !important;
   }
 </style>
