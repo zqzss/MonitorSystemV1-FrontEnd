@@ -241,6 +241,7 @@
           "currentPage": this.currentPage,
           "pageSize": this.pageSize
         }
+        this.loading = true
         this.$axios.get("http://127.0.0.1:8080/user/query",{ params: queryData }).then(response => {
           if (response.data.code == 200) {
             this.tableData = response.data.data.tableData
@@ -271,6 +272,7 @@
               showIcon: true
             });
           }
+          this.loading = false
         })
       },
       addUserOne() {

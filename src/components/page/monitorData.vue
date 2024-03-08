@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div style="display: flex; justify-content: flex-end;" fit>
+    <div style="display: flex; justify-content: flex-end;margin-bottom: 15px;" fit>
       <el-input placeholder="请输入主机名" v-model="inputHostName" clearable style="margin-right: 30px;width: 200px;">
       </el-input>
       <el-button type="primary" class="btn" icon="el-icon-search" @click="fetchData">搜索</el-button>
@@ -94,6 +94,7 @@
           "pageSize": this.pageSize,
           "hostName": this.inputHostName
         }
+        this.loading = true
         this.$axios.post(url, data).then(response => {
 
             this.tableData = response.data.data.tableData;
@@ -126,6 +127,7 @@
                 showIcon: true
               });
             }
+            this.loading=false
           })
       },
       handleRowClick(row, event, column) {

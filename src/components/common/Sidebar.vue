@@ -93,7 +93,7 @@
           },
           {
             title: "告警记录",
-            path: '/monitorAlarm',
+            path: '/alarmRecord',
             icon: "el-icon-warning-outline"
           },
           {

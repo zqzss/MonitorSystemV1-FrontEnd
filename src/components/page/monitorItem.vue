@@ -4,7 +4,7 @@
     <div style="display: flex; justify-content: space-between;">
       <el-button type="primary" plain class="btn" style="margin-bottom: 18px;" @click="addMonitorItemClick">新增</el-button>
       <div style="display: flex; ">
-        <el-input placeholder="请输入主机名" v-model="inputHostName" clearable style="margin-right: 30px;">
+        <el-input placeholder="请输入主机名" v-model="inputHostName"  style="margin-right: 30px;">
         </el-input>
         <el-button type="primary" class="btn" icon="el-icon-search" @click="getMonitorItemAll" >搜索</el-button>
       </div>
@@ -140,10 +140,19 @@
           "currentPage": this.currentPage,
           "pageSize": this.pageSize
         }
-
+        this.loading = true
         this.$axios.get("http://127.0.0.1:8080/monitorItem",{ params: queryData }).then(response => {
-          this.tableData = response.data.data.tableData;
-          this.total = response.data.data.total;
+          if(response.data.code == 200){
+            this.tableData = response.data.data.tableData;
+            this.total = response.data.data.total;
+          }
+          else{
+            this.$message({
+              message: response.data.msg,
+              type: 'error',
+              showIcon: true
+            });
+          }
           this.loading=false;
         }).catch(error => {
           if (error.response) {
@@ -160,7 +169,7 @@
               showIcon: true
             });
           }
-
+          this.loading=false;
         })
       },
       editMonitorItemClick(id) {

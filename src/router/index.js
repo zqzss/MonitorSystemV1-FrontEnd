@@ -79,8 +79,8 @@ const router = new Router({
           }
         },
         {
-          path: '/monitorAlarm',
-          component: () => import('../components/page/monitorAlarm.vue'),
+          path: '/alarmRecord',
+          component: () => import('../components/page/alarmRecord.vue'),
           meta: {
             title: '告警记录', // 设置正确的 title 值
             requiresAuth: true // 需要认证

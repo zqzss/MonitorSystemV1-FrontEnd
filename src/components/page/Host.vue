@@ -288,6 +288,7 @@
           "currentPage": this.currentPage,
           "pageSize": this.pageSize
         }
+        this.loading = true
         this.$axios.get("http://127.0.0.1:8080/host/query", {
           params: queryData
         }).then(response => {
@@ -305,8 +306,6 @@
           }
           this.loading = false
         }).catch(error => {
-
-
           if (error.response) {
             this.$message({
               message: error.response.data.msg,
@@ -321,6 +320,7 @@
               showIcon: true
             });
           }
+          this.loading = false
         })
       },
       addHostOne() {

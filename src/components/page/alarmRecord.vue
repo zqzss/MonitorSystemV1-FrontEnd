@@ -183,6 +183,7 @@
                 showIcon: true
               });
             }
+            this.loading=false
           })
       },
       // 点击表格行
